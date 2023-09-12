@@ -1,68 +1,60 @@
-:root {
-    --main-color: #14a30c;
-    --background-color: #f9d6a7;
-}
-
-body {
-display: grid;
-place-items: center;
-height: 100vh;
-background: var(--background-color);
-}
-
 .container {
-background-color: #ffffffa1;
-backdrop-filter: blur(10px);
-border: 2px solid #ffffff6d;
-width: 760px;
-border-radius: 10px;
-box-shadow: 3px 3px 11px 1.5px #0000002b;
-font-family: Verdana, Geneva, Tahoma, sans-serif;
-padding: 10px;
-height: 550px;
-
-display: grid;
-grid-template-columns: 50% 50%;
+    background: linear-gradient(155deg, rgba(23,43,89,1) 0%, rgba(19,22,40,1) 60%);
+    backdrop-filter: blur(10px);
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 3px 3px 11px 1.5px #00000052;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 3% ;
+    min-height: 500px;
+    height: 80%;
+    display: grid;
+    margin: 30px auto;
 }
+
+
 
 h1 {
-padding: 20px;
-color: var(--main-color);
-font-size: 2.1rem;
-font-weight: 800;
-grid-column: 1 / span 2;
+    padding: 20px;
+    color: var(--main-color);
+    font-size: 2.1rem;
+    font-weight: 800;
+}
+
+p {
+    padding: 10px;
+    color: var(--main-color);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.indice{
+    padding: 10px;
+    color: var(--main-color);
+    font-size: 0.8rem;
+    font-weight: 400;
 }
 
 form {
-display: flex;
-flex-direction: column;
-padding: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 20px;
 }
 
 .form-group {
     display: grid;
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: repeat(2, 100%);
 }
 
 form input {
     padding: 10px;
     border-radius: 8px;
     border: none;
-    background-color: #ffffff6d;
+    background-color: var(--background-color);
     width: 100%;
     outline: none;
-    color: var(--main-color);
+    color: var(--secoundary-color);
     margin-bottom: 10px;
 }
 
-form button {
-    width: fit-content;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1.1rem;
-    color: white;
-    background-color: var(--main-color);
-    border: none;
-    cursor: pointer;
-    margin: auto;
-  }

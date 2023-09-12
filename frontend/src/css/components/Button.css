@@ -1,0 +1,28 @@
+.button {
+    width: fit-content;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    margin: 10px auto;
+}
+
+.button:hover {
+    color: var(--main-color);
+    background-color: rgba(0,0,0,0);
+    border: 2px solid var(--main-color);
+}
+
+.button-primary {
+    color: white;
+    background-color: var(--main-color);
+    border: 2px solid var(--main-color);
+}
+
+.button-default {
+    color: var(--main-color);
+    background-color: var(--background-color);
+    border: 2px solid var(--background-color);
+}
+

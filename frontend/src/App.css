@@ -1,8 +1,15 @@
 /* COMPONENTS */
-
+@import './css/components/Button.css';
+@import './css/components/Navbar.css';
 
 /* CONTAINERS */
 @import './css/containers/Login.css';
+
+:root {
+    --main-color: #C49C78;
+    --background-color: #99a1c9;
+    --secondary-color: #152142;
+}
 
 * {
     padding: 0;
@@ -10,3 +17,15 @@
     box-sizing: border-box;
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background: var(--background-color);
+}
+
+.main-container {
+    width: 100%;
+    height: auto;
+}
