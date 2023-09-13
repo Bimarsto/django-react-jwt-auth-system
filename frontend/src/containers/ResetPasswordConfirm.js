@@ -5,7 +5,7 @@ import { reset_password_confirm } from '../actions/auth';
 
 import Button from '../components/Button'
 
-const ResetPasswordConfirm = ({ match, reset_password_confirm }) => {
+const ResetPasswordConfirm = ({ reset_password_confirm }) => {
     const routeParam = useParams()
     const [requestSent, setRequestSent] = useState(false);
     const [formData, setFormData] = useState({

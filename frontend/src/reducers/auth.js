@@ -48,6 +48,7 @@ export default function(state = initialState, action) {
                 refresh: payload.refresh
             }
         case SIGNUP_SUCCESS:
+        case AUTHENTICATED_FAIL:
             return {
                 ...state,
                 isAuthenticated: false
@@ -56,11 +57,6 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 user: payload
-            }
-        case AUTHENTICATED_FAIL:
-            return {
-                ...state,
-                isAuthenticated: false
             }
         case USER_LOADED_FAIL:
             return {
