@@ -1,9 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate, useParams } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { reset_password_confirm } from '../actions/auth';
 
-const ResetPasswordConfirm = () => (
-    <div>
-        ResetPasswordConfirm
-    </div>
-);
+import Button from '../components/Button'
 
-export default ResetPasswordConfirm
+const ResetPasswordConfirm = ({ match, reset_password_confirm }) => {
+    const routeParam = useParams()
+    const [requestSent, setRequestSent] = useState(false);
+    const [formData, setFormData] = useState({
+        new_password: '',
+        re_new_password: '' 
+    });
+
+    const navigate = useNavigate()
+
+    const { new_password, re_new_password } = formData;
+
+    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    const onSubmit = e => {
+        e.preventDefault();
+
+        const uid = routeParam.uid;
+        const token = routeParam.token;
+
+        reset_password_confirm(uid, token, new_password, re_new_password);
+        setRequestSent(true);
+    };
+
+    if (requestSent) {
+        navigate("/");
+    }
+
+    return (
+        <div className='container'>
+            <div className="content">
+                <form onSubmit={e => onSubmit(e)}>
+                    <div className='form-group'>
+                        <input
+                            className='form-control'
+                            type='password'
+                            placeholder='New Password'
+                            name='new_password'
+                            value={new_password}
+                            onChange={e => onChange(e)}
+                            minLength='6'
+                            required
+                        />
+                    </div>
+                    <div className='form-group'>
+                        <input
+                            className='form-control'
+                            type='password'
+                            placeholder='Confirm New Password'
+                            name='re_new_password'
+                            value={re_new_password}
+                            onChange={e => onChange(e)}
+                            minLength='6'
+                            required
+                        />
+                    </div>
+                    <Button type='submit' text='Enregistrer le nouveau mot de passe' version='primary' />
+                </form>
+            </div>
+        </div>
+    );  
+};
+
+export default connect(null, { reset_password_confirm })(ResetPasswordConfirm);
