@@ -19,12 +19,12 @@ const App = () => (
         <Router>
             <Layout>
                 <Routes>
-                    <Route exact path='/' Component={Home} />
-                    <Route exact path='/login' Component={Login} />
-                    <Route exact path='/signup' Component={Signup} />
-                    <Route exact path='/reset-password' Component={ResetPassword} />
-                    <Route exact path='/password/reset/confirm/:uid/:token' Component={ResetPasswordConfirm} />
-                    <Route exact path='/activate/:uid/:token' Component={Activate} />
+                    <Route exact path='/' element={<Home />} />
+                    <Route exact path='/login' element={<Login />} />
+                    <Route exact path='/signup' element={<Signup />} />
+                    <Route exact path='/reset-password' element={<ResetPassword />} />
+                    <Route exact path='/password/reset/confirm/:uid/:token' element={<ResetPasswordConfirm />} />
+                    <Route exact path='/activate/:uid/:token' element={<Activate />} />
                 </Routes>
             </Layout>
         </Router>

@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import { Link, Redirect } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../actions/auth';
 
-import Button, { button } from '../components/Button'
+import Button from '../components/Button'
 
-const Login = ({ login }) => {
+const Login = ({ login, isAuthenticated }) => {
     const [formData, setFormData] = useState({
         email: '',
         password: '' 
     });
+
+    const navigate = useNavigate()
 
     const { email, password } = formData;
 
@@ -20,6 +22,10 @@ const Login = ({ login }) => {
 
         login(email, password);
     };
+
+    if (isAuthenticated) {
+        navigate("/");
+    }
 
     return (
         <div className='container'>
@@ -60,9 +66,11 @@ const Login = ({ login }) => {
                 </p>
             </div>
         </div>
-    );
-
-    
+    );  
 };
 
-export default connect(null, { login })(Login);
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { login })(Login);

@@ -6,9 +6,9 @@
 @import './css/containers/Login.css';
 
 :root {
-    --main-color: #C49C78;
-    --background-color: #99a1c9;
-    --secondary-color: #152142;
+    --main-color: #b19379;
+    --background-color: #b5b8c8;
+    --secondary-color: #1b2a55;
 }
 
 * {

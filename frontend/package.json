@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rd /s /q ..\\backend\\auth_system\\build && react-scripts build && Xcopy /E /I build ..\\backend\\auth_system\\build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
