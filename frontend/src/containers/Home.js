@@ -1,7 +1,7 @@
 import React from "react";
 import Button from '../components/Button'
 
-const Home = ({ isAuthenticated }) => {
+const Home = () => {
     return (
         <div className='container'>
             <div className='content'>

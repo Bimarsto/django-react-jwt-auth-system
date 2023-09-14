@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../actions/auth';
+import store from "../store";
 
-const Navbar = ({ logout, isAuthenticated }) => {
+const Navbar = ({ logout, isAuthenticated, user}) => {
     const [redirect, setRedirect] = useState(false);
 
     const navigate = useNavigate()
@@ -26,9 +27,11 @@ const Navbar = ({ logout, isAuthenticated }) => {
     
     const authLinks = () => (
         <li className='nav-item'>
-            <a className='nav-link' href='#!' onClick={logout_user}>Logout</a>
+            <a className='nav-link' href='/' onClick={logout_user}>Logout</a>
         </li>
     );
+
+    
 
     return (
         <>
@@ -40,6 +43,7 @@ const Navbar = ({ logout, isAuthenticated }) => {
                             <Link className="nav-link" to='/'>Home</Link>
                         </li>
                         {isAuthenticated ? authLinks() : guestLinks()}
+                        {user != null ? <p>{user.username}</p> : <p>invite</p>}
                     </ul>
                 </div>
             </nav>
@@ -49,7 +53,8 @@ const Navbar = ({ logout, isAuthenticated }) => {
 };
 
 const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated,
+    user: state.auth.user
 });
 
 export default connect(mapStateToProps, { logout })(Navbar);

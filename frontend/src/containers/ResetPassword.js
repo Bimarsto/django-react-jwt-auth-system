@@ -13,7 +13,7 @@ const ResetPassword = ({ reset_password }) => {
 
     const navigate = useNavigate()
 
-    const { email, password } = formData;
+    const { email } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 

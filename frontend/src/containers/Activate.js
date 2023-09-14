@@ -3,8 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { verify } from '../actions/auth';
 
-import Button from '../components/Button'
-
 const Activate = ({ verify }) => {
     const routeParam = useParams()
     const [verified, setVerified] = useState(false);
